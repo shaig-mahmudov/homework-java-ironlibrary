@@ -1,0 +1,15 @@
+package com.ironhack.repository;
+
+import com.ironhack.entity.Issue;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface IssueRepository extends JpaRepository<Issue, UUID> {
+    boolean existsByStudent_Id(UUID studentId);
+
+    boolean existsByBook_Id(UUID bookId);
+
+    List<Issue> findByStudent_Usn(String usn);
+}
